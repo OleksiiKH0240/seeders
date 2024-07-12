@@ -1,0 +1,54 @@
+[
+  {
+    "schemaName": "public",
+    "tableName": "Post",
+    "predictions": [
+      {
+        "input": "public post content",
+        "column": "content",
+        "shape": "POST_BODY",
+        "confidence": 0.7429391145706177,
+        "context": "GENERAL",
+        "confidenceContext": 0
+      },
+      {
+        "input": "public post title",
+        "column": "title",
+        "shape": "POST_TITLE",
+        "confidence": 0.5458157062530518,
+        "context": "GENERAL",
+        "confidenceContext": 0
+      }
+    ]
+  },
+  {
+    "schemaName": "public",
+    "tableName": "User",
+    "predictions": [
+      {
+        "input": "public user email",
+        "column": "email",
+        "shape": "EMAIL",
+        "confidence": 0.99404376745224,
+        "context": "GENERAL",
+        "confidenceContext": 0
+      },
+      {
+        "input": "public user name",
+        "column": "name",
+        "shape": "USERNAME",
+        "confidence": 0.9706624150276184,
+        "context": "GENERAL",
+        "confidenceContext": 0
+      },
+      {
+        "input": "public user phone",
+        "column": "phone",
+        "shape": "PHONE_NUMBER",
+        "confidence": 0.9625558853149414,
+        "context": "GENERAL",
+        "confidenceContext": 0
+      }
+    ]
+  }
+]

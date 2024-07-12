@@ -1,0 +1,23 @@
+{
+  "name": "knex_seeder",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node index.ts",
+    "seed:make": "knex seed:make seed_name",
+    "migrate": "node --loader ts-node/esm ./node_modules/.bin/knex -x ts migrate:make example_migration",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "knex": "^3.1.0",
+    "pg": "^8.12.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.10"
+  }
+}

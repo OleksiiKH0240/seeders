@@ -1,0 +1,36 @@
+{
+  "name": "prisma_seeder",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "migrate:prisma": "npx prisma migrate dev --name init",
+    "//": "script below is using for basic seeding",
+    "seed": "ts-node prisma/seed.ts",
+    "//": "script below is using for snaplet seeding",
+    "seed:snaplet": "npx prisma db seed"
+  },
+  "//": "section below is using for snaplet seeding",
+  "prisma": {
+    "seed": "tsx prisma/seed/seed.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@snaplet/copycat": "^5.0.0",
+    "@snaplet/seed": "^0.97.20",
+    "@types/node": "^20.14.10",
+    "prisma": "^5.16.2",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.16.2",
+    "typescript": "^5.5.3"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.16.2"
+  },
+  "@snaplet/seed": {
+    "config": "prisma\\seed\\seed.config.ts"
+  }
+}
