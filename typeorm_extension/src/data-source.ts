@@ -1,36 +1,30 @@
 import "dotenv/config";
 import { DataSource, DataSourceOptions } from 'typeorm';
-import { createDatabase, runSeeders, SeederOptions } from 'typeorm-extension';
-import profileFactory from "../database/factories/profile.factory";
+import { createDatabase, runSeeders, SeederOptions, generateMigration } from 'typeorm-extension';
+import postFactory from "../database/factories/post.factory";
 import userFactory from '../database/factories/user.factory';
-import ProfileSeeder from "../database/seeds/profile.seeder";
+import PostSeeder from "../database/seeds/post.seeder";
 import UserSeeder from '../database/seeds/user.seeder';
-import { Profile, User } from '../schemas';
+import { User } from '../database/entities/user';
+import { Post } from '../database/entities/post';
 
-(async () => {
-    const options: DataSourceOptions & SeederOptions = {
-        type: 'postgres',
-        host: process.env.host,
-        port: Number(process.env.port),
-        username: process.env.user,
-        password: process.env.password,
-        database: process.env.database,
-        schema: process.env.schema,
-        // ssl: { rejectUnauthorized: false },
 
-        entities: [User],
-        seeds: [UserSeeder],
-        factories: [userFactory]
-    };
+export const options: DataSourceOptions & SeederOptions = {
+    type: 'postgres',
+    host: process.env.host,
+    port: Number(process.env.port),
+    username: process.env.user,
+    password: process.env.password,
+    database: process.env.database,
+    schema: process.env.schema,
+    // ssl: { rejectUnauthorized: false },
+    synchronize: true,
 
-    // Create the database with specification of the DataSource options
-    await createDatabase({
-        options
-    });
+    entities: [User, Post],
+    seeds: [UserSeeder, PostSeeder],
+    factories: [userFactory, postFactory]
+};
 
-    const dataSource = new DataSource(options);
-    await dataSource.initialize();
+export const dataSource = new DataSource(options);
 
-    runSeeders(dataSource);
-    // do something with the DataSource
-})();
+

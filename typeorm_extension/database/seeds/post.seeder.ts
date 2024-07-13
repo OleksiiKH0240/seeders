@@ -1,8 +1,8 @@
 import { Seeder, SeederFactoryManager } from 'typeorm-extension';
 import { DataSource } from 'typeorm';
-import { Profile } from '../../schemas';
+import { Post } from '../entities/post';
 
-export default class ProfileSeeder implements Seeder {
+export default class PostSeeder implements Seeder {
     /**
      * Track seeder execution.
      *
@@ -14,15 +14,15 @@ export default class ProfileSeeder implements Seeder {
         dataSource: DataSource,
         factoryManager: SeederFactoryManager
     ): Promise<any> {
-        const repository = dataSource.getRepository(Profile);
+        const repository = dataSource.getRepository(Post);
 
         // ---------------------------------------------------
 
-        const profileFactory = await factoryManager.get(Profile);
+        const postFactory = await factoryManager.get(Post);
         // save 1 factory generated entity, to the database
-        await profileFactory.save();
+        await postFactory.save();
 
         // save 5 factory generated entities, to the database
-        await profileFactory.saveMany(5);
+        await postFactory.saveMany(5);
     }
 }

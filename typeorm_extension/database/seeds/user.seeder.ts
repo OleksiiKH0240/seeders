@@ -1,6 +1,6 @@
 import { Seeder, SeederFactoryManager } from 'typeorm-extension';
 import { DataSource } from 'typeorm';
-import { User } from '../../schemas';
+import { User } from '../entities/user';
 
 export default class UserSeeder implements Seeder {
     /**

@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "seed": "ts-node src/data-source.ts"
+    "seed": "ts-node src/runSeed.ts"
   },
   "dependencies": {
     "dotenv": "^16.4.5",
