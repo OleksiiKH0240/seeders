@@ -14,7 +14,7 @@ const main = async () => {
   await seed.$resetDatabase();
 
   /// Seed the database with 10 users
-  await seed.user((createMany) => createMany(10, {
+  await seed.user((createMany) => createMany(3, {
     name: (ctx) => copycat.firstName(ctx.seed),
     email: (ctx) => copycat.email(ctx.seed, { domain: "blog.dev" }),
     phone: (ctx) => copycat.phoneNumber(ctx.seed, { length: 11, prefixes: ["+38099", "+38067"] }),
@@ -22,7 +22,7 @@ const main = async () => {
     posts: (createMany) => createMany(2),
   }))
 
-  await seed.post((x) => x(10))
+  // await seed.post((x) => x(10))
 
   // Type completion not working? You might want to reload your TypeScript Server to pick up the changes
 

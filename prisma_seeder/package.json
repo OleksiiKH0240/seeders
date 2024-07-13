@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "migrate:prisma": "npx prisma migrate dev --name init",
+    "migrate": "npx prisma migrate dev --name init",
     "//": "script below is using for basic seeding",
     "seed": "ts-node prisma/seed.ts",
     "//": "script below is using for snaplet seeding",
-    "seed:snaplet": "npx prisma db seed"
+    "seed:snaplet": "npx prisma db seed",
+    "sync": "npx @snaplet/seed sync"
   },
   "//": "section below is using for snaplet seeding",
   "prisma": {
